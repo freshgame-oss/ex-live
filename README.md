@@ -4,7 +4,7 @@
 
 ## 架构与效果
 
-下面的图由 **ex-live 自己生成**，使用默认的 `warm-paper` 模板。
+下面的图由 **ex-live 自己生成**，使用默认的 `warm` 模板。
 一份 Markdown 源稿包含说明文字和动态配置，由两套渲染器生成组合页面。
 
 [![ex-live 架构：Markdown 源稿分别生成说明和动态面板，再合成离线 HTML；状态、日志和计数均为模拟](examples/assets/architecture.gif)](examples/assets/architecture.png)
@@ -147,7 +147,15 @@ node scripts/ex-live.mjs help video
 
 Chrome 不是生成 HTML 的必需项。Chrome、Chromium、Edge 和 Brave 可用于自动检查与导出。缺少可选依赖时仍可生成 HTML，但不能宣称已完成这些检查。
 
-说明页默认使用 `template: doc`、`theme: ex-live`、`mode: light`。动态面板默认使用 `warm-paper`。主页面切换主题不会替换动态面板主题。
+说明页默认使用 `template: doc`、`theme: ex-live`、`mode: light`。动态面板默认使用 `warm`。主页面切换主题不会替换动态面板主题。
+
+| 动态主题 | 外观 | 调用示例 |
+| --- | --- | --- |
+| `dark` | 深色终端、亮色连线 | 用 ex-live 解释架构，动态面板用 dark。 |
+| `light` | 近白背景、柔和配色 | 用 ex-live 解释架构，动态面板用 light。 |
+| `warm` | 暖纸色、圆角卡片 | 用 ex-live 解释架构，动态面板用 warm。 |
+
+动态 JSON 使用 `"theme": {"preset": "warm"}`。旧源稿的 `terminal-dark`、`light-pastel`、`warm-paper` 分别改为 `dark`、`light`、`warm`。已生成的 HTML 可继续使用。
 系统开启减少动画时，动态面板默认暂停，仍显示完整第一帧。
 
 默认数据根目录是 `~/.ex-live/`：

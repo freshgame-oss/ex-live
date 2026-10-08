@@ -25,7 +25,7 @@ class PlaybackTest(unittest.TestCase):
         cls.original = Path(cls.directory.name) / 'original.html'
         cls.config = {
             'canvas': {'width': 400, 'height': 300, 'duration': 4},
-            'theme': {'preset': 'warm-paper', 'font': 'Arial'},
+            'theme': {'preset': 'warm', 'font': 'Arial'},
             'titlebar': {'text': 'Warm paper'},
             'machines': {
                 'seq': {'type': 'cycle', 'period': 1, 'values': ['idle', 'working']},
@@ -43,7 +43,12 @@ class PlaybackTest(unittest.TestCase):
         config_path = Path(cls.directory.name) / 'config.json'
         config_path.write_text(json.dumps(cls.config), encoding='utf-8')
         lp.build_page(config_path, cls.page)
-        lp.build_page(config_path, cls.original,
+        # Keep the upstream fixture unchanged: it uses the historical preset name.
+        original_config = json.loads(json.dumps(cls.config))
+        original_config['theme']['preset'] = 'warm-paper'
+        original_config_path = Path(cls.directory.name) / 'original-config.json'
+        original_config_path.write_text(json.dumps(original_config), encoding='utf-8')
+        lp.build_page(original_config_path, cls.original,
                       Path(__file__).parent / 'fixtures' / 'original-template.html')
 
     @classmethod

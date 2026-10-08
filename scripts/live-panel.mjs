@@ -5,7 +5,7 @@ import { spawn } from 'node:child_process';
 
 export const engineRoot = fileURLToPath(new URL('../engines/live-panel/', import.meta.url));
 const presets = { '4:5': [1200, 1500], '3:4': [1080, 1440], '1:1': [1080, 1080] };
-const themes = ['warm-paper', 'terminal-dark', 'light-pastel'];
+const themes = ['warm', 'dark', 'light'];
 const machineTypes = ['counter', 'cycle', 'gauge', 'any_low', 'lane', 'triggers'];
 const elementTypes = ['text', 'box', 'path', 'line', 'glyph', 'rule', 'flow', 'tarrow', 'log'];
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -53,7 +53,7 @@ export function parseLivePanel(input) {
   }
   number(config.canvas.duration, 'canvas.duration', 0.1, 600);
   number(config.canvas.fps, 'canvas.fps', 1, 120);
-  config.theme = { preset: 'warm-paper', ...config.theme };
+  config.theme = { preset: 'warm', ...config.theme };
   requireValue(themes.includes(config.theme.preset), 'theme.preset', themes.join('、'));
   if (config.theme.colors !== undefined) {
     record(config.theme.colors, 'theme.colors');

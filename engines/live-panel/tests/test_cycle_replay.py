@@ -24,7 +24,7 @@ class CycleReplayTest(unittest.TestCase):
         cls.page = Path(cls.directory.name) / "page.html"
         config = {
             "canvas": {"width": 400, "height": 300, "duration": 3},
-            "theme": {"preset": "light-pastel", "font": "Arial", "colors": {
+            "theme": {"preset": "light", "font": "Arial", "colors": {
                 "active": "#22aa66", "inactive": "#445566"
             }},
             "machines": {

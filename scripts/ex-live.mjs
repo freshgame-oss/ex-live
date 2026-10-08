@@ -5762,10 +5762,10 @@ var LIVE_HELP = `live-panel — 说明与动态面板一起输出
 
 在一个 ## 面板中写一个 live-panel 围栏，内容为 JSON：
 \`\`\`live-panel
-{"canvas":{"width":600,"height":400},"theme":{"preset":"warm-paper"},"elements":[{"type":"box","x":40,"y":80,"w":240,"h":100,"lines":["请求入口"]}]}
+{"canvas":{"width":600,"height":400},"theme":{"preset":"warm"},"elements":[{"type":"box","x":40,"y":80,"w":240,"h":100,"lines":["请求入口"]}]}
 \`\`\`
 
-- 默认 warm-paper；支持 terminal-dark、light-pastel。推荐主稿 template: doc、mode: light。
+- 默认 warm；支持 dark、light。推荐主稿 template: doc、mode: light。
 - 一份稿件放一个动态面板。配置必须内嵌，不接受外部文件路径或 URL。
 - render 同时生成主 HTML、同名 .md、-live.html、-live.json。主 HTML 可单文件离线分享。
 - render --mp4 另存 -live.mp4，使用包内 Python 渲染器，需要 Python 3、兼容 Chrome DevTools 的浏览器、ffmpeg。

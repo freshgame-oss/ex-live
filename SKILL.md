@@ -25,7 +25,7 @@ metadata:
 ## 默认组合输出
 
 1. 读取 [动态配置格式](engines/live-panel/references/config-schema.md) 和 [动画规则](engines/live-panel/references/motion-grammar.md)。从 [组合示例](examples/combined.md) 开始，使用现有模板，不重写 CSS、SVG 或模板。
-2. 主稿推荐 `template: doc`、`theme: ex-live`、`mode: light`，动态配置默认 `theme.preset: warm-paper`。两套主题分别设置；主页面切换明暗不会替换动态主题。
+2. 主稿推荐 `template: doc`、`theme: ex-live`、`mode: light`，动态配置默认 `theme.preset: warm`。两套主题分别设置；主页面切换明暗不会替换动态主题。
 3. 每份稿件只放一个 `live-panel` 围栏，JSON 内嵌在稿件中。固定画布第一帧即完整，日志、计数和连线一起变化。所有画面状态来自确定性 `seek(t)`。
 4. 先检查，再生成：
 

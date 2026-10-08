@@ -455,12 +455,12 @@ function fit(){ var height=manual?innerHeight:Math.max(1,innerHeight-44), s=Math
 var CANVAS_PRESETS={'4:5':[1200,1500],'3:4':[1080,1440],'1:1':[1080,1080]};
 
 var THEME_PRESETS={
- 'terminal-dark':{
+ 'dark':{
    font:'"JetBrains Mono","IBM Plex Mono","DejaVu Sans Mono","Noto Sans Mono CJK SC",monospace',
    fontSize:21,lineHeight:30.7,boxMode:'segmented',radius:0,borderWidth:2,wireWidth:2,glow:false,packetSize:10,
    colors:{bg:'#14171c',bar:'#262a32',line:'#4a5367',line2:'#3a4154',dim:'#6f788c',mute:'#aab1c0',fg:'#e4e8f0',wh:'#ffffff',cy:'#86e1e6',bl:'#8fb4f6',gr:'#7fdba8',pu:'#b9a2f2',ye:'#e3c07a',hl:'#302d45',dots:'#566078'}
  },
- 'warm-paper':{
+ 'warm':{
     font:'"JetBrains Mono","Inter","Noto Sans CJK SC",monospace',
     fontSize:20,lineHeight:29.5,boxMode:'solid',radius:8,borderWidth:1.5,wireWidth:2,glow:false,packetSize:9,
     stageShadow:'0 16px 40px rgba(60,50,40,0.1)',
@@ -479,7 +479,7 @@ var THEME_PRESETS={
       hl:'#ded4c1',dots:'#aea490'
     }
   },
-  'light-pastel':{
+  'light':{
    font:'"Noto Sans CJK SC","PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif',
    fontSize:17,lineHeight:24,boxMode:'solid',radius:9,borderWidth:1.5,wireWidth:2.2,glow:false,packetSize:10,
    colors:{bg:'#fcfcfb',bar:'#f1f1ef',line:'#2d3138',line2:'#c9ccd1',dim:'#7b828c',fg:'#23272e',wh:'#ffffff',ink:'#111111',
@@ -490,8 +490,8 @@ var THEME_PRESETS={
 };
 
 function mergeTheme(u){
-  var presetKey = u.preset || 'terminal-dark';
-  var base = THEME_PRESETS[presetKey] || THEME_PRESETS['terminal-dark'];
+  var presetKey = u.preset || 'dark';
+  var base = THEME_PRESETS[presetKey] || THEME_PRESETS['dark'];
   var o = Object.assign({}, base, u);
   o.colors = Object.assign({}, base.colors, u.colors || {});
   return o;

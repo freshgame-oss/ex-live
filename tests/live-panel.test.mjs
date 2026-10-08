@@ -135,7 +135,7 @@ test('isolated installation renders a complete offline bundle from a file with s
   assert.deepEqual(readdirSync(dirname(installed)), ['ex-live']);
   success(dir, ['render', input, '--template', 'doc', '--style', 'off', '--no-open', '-o', files.html]);
   const bundle = assertBundle(files, source);
-  assert.equal(bundle.normalized.theme.preset, 'warm-paper');
+  assert.equal(bundle.normalized.theme.preset, 'warm');
   assert.deepEqual(bundle.normalized.canvas, { width: 600, height: 400, duration: 30, fps: 30 });
   assert.deepEqual(bundle.normalized.machines, config().machines);
   assert(bundle.html.includes('Original prose.'));
@@ -183,7 +183,7 @@ test('prose patch updates source but preserves standalone and config bytes; live
 
   const changed = config();
   changed.canvas.width = 720;
-  changed.theme = { preset: 'light-pastel' };
+  changed.theme = { preset: 'light' };
   changed.elements[0].lines = ['New simulated request count: {requests}'];
   success(dir, patchArgs(files.html, 'B'), `## B Simulation\n${fence(changed)}\n`);
   for (const path of [files.html, files.source, files.live, files.config]) {
@@ -191,12 +191,17 @@ test('prose patch updates source but preserves standalone and config bytes; live
   }
   const bundle = assertBundle(files, readFileSync(files.source, 'utf8'));
   assert.equal(bundle.normalized.canvas.width, 720);
-  assert.equal(bundle.normalized.theme.preset, 'light-pastel');
+  assert.equal(bundle.normalized.theme.preset, 'light');
   assert.deepEqual(bundle.normalized.elements, changed.elements);
   assert(bundle.html.includes('Revised prose.'));
 });
 
 const invalidCases = [
+  ...['terminal-dark', 'light-pastel', 'warm-paper'].map(preset => [
+    `retired theme ${preset}`,
+    () => ({ ...config(), theme: { preset } }),
+    /theme\.preset/,
+  ]),
   ['malformed JSON', '{"elements":', /live-panel/],
   ['unknown machine', () => ({ ...config(), machines: { q: { type: 'unknown' } } }), /machines\.q/],
   ['empty cycle values', () => ({ ...config(), machines: { q: { type: 'cycle', period: 1, values: [] } } }), /values/],

@@ -23,7 +23,7 @@ style: strict
 {
   "meta": {"title": "ex-live · 生成流程（模拟）", "lang": "zh-CN"},
   "canvas": {"width": 1000, "height": 760, "duration": 24, "fps": 30},
-  "theme": {"preset": "warm-paper", "fontSize": 20, "lineHeight": 28},
+  "theme": {"preset": "warm", "fontSize": 20, "lineHeight": 28},
   "titlebar": {"text": "ex-live · 说明与动态一起输出"},
   "clock": {"start": "09:00:00", "rate": 1},
   "credit": {"text": "功能示例 · 状态、时钟和计数均为模拟", "y": 735},

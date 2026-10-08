@@ -34,7 +34,7 @@ class GlowReplayTest(unittest.TestCase):
         cls.directory = tempfile.TemporaryDirectory(prefix="livepanel-glow-test-")
         config = {
             "canvas": {"width": 400, "height": 300, "duration": 4},
-            "theme": {"preset": "light-pastel", "font": "Arial", "colors": {"pk": "#f0575f"}},
+            "theme": {"preset": "light", "font": "Arial", "colors": {"pk": "#f0575f"}},
             "machines": {"seq": {"type": "cycle", "period": 1, "values": ["a", "b"]}},
             "elements": [{
                 "type": "box", "x": 20, "y": 20, "w": 160, "h": 60,
