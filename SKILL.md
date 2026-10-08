@@ -4,7 +4,7 @@ description: 用简化技术中文解释内容，同时生成 live-panel 动态�
 license: MIT
 compatibility: HTML 生成需要 Node.js 22+；动态帧检查需要 Python 3 和兼容 Chrome DevTools 的浏览器，MP4 另需 ffmpeg。macOS/Linux 可导出，Windows 使用 WSL。HTML 可离线运行，无须 API Key。
 metadata:
-  author: liguangjie
+  author: Kenny
   version: "0.2.0"
 ---
 

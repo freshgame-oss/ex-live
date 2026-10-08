@@ -8,7 +8,7 @@
 - Reference revision: `e66ecf52c1900159d709027775a41466edefe224`
 - Used in: `references/writing-rules.md` and skill writing instructions
 - Copyright (c) 2026 dualface
-- License: MIT; the original license is included in `LICENSE.ste-zh`.
+- License: MIT, reproduced below.
 
 ## answer-me-with-html
 

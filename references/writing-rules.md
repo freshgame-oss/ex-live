@@ -1,6 +1,6 @@
 # 简化技术中文写作规则
 
-本文件改编自 [dualface/ste-zh](https://github.com/dualface/ste-zh)。规则编号沿用该项目的 R1–R25，便于核对；不是 ASD-STE100 标准的规则编号。许可见 [LICENSE.ste-zh](../LICENSE.ste-zh)。
+本文件改编自 [dualface/ste-zh](https://github.com/dualface/ste-zh)。规则编号沿用该项目的 R1–R25，便于核对；不是 ASD-STE100 标准的规则编号。许可见 [第三方声明](../THIRD-PARTY-NOTICES.md#ste-zh)。
 
 这些规则默认用于所有 ex-live 生成、修补的中文内容。页面正文、标题、图表标签和视频旁白都在范围内。代码、命令、路径、标识符、界面字面量、原样引文保持原文。用户指定的语言、格式与任务范围优先。
 
