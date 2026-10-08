@@ -1,0 +1,41 @@
+{
+  "name": "ex-live",
+  "version": "0.2.0",
+  "private": true,
+  "description": "简化技术中文说明与 live-panel 动态面板一起输出的 Agent Skill",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freshgame-oss/ex-live.git"
+  },
+  "homepage": "https://github.com/freshgame-oss/ex-live#readme",
+  "keywords": ["agent-skill", "pi-package", "html", "ste"],
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "ex-live": "scripts/ex-live.mjs"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "check": "node --check scripts/ex-live.mjs && node --check scripts/live-panel.mjs && node --test tests/*.test.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "LICENSE",
+    "LICENSE.ste-zh",
+    "THIRD-PARTY-NOTICES.md",
+    "scripts/",
+    "engines/",
+    "references/",
+    "examples/",
+    "tests/",
+    "!**/__pycache__/**",
+    "!**/*.pyc"
+  ],
+  "pi": {
+    "skills": ["./SKILL.md"]
+  }
+}

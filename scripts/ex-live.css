@@ -1,0 +1,267 @@
+/* 配色：Claude 暖纸 + 赤陶 — Anthropic 品牌观感（非官方 palette） */
+html[data-theme="ex-live"]:not([data-video])[data-mode="light"],
+html[data-theme="ex-live"]:not([data-video])[data-mode="auto"],
+html[data-theme="ex-live"]:not([data-video]) {
+  --bg: #FAF9F5;
+  --paper: #FFFFFF;
+  --ink: #191919;
+  --ink-2: #5D5851;
+  --ink-3: #7D7669;
+  --line: #E6E1D6;
+  --line-2: #F0ECE3;
+  --fill: #F6F3EC;
+  --accent: #D97757;
+  --accent-bg: #FBF1EE;
+  --accent-2: #C25F3D;
+  --accent-strong: #C6532D;
+  --ok: #5B7648;
+  --ok-bg: #EFF2ED;
+  --warn: #96641C;
+  --warn-bg: #F6F1E9;
+  --err: #B8433A;
+  --err-bg: #F8ECEB;
+  --term-bg: #191919;
+  --term-fg: #FFFFFF;
+  --radius: 8px;
+  --bw: 1px;
+  --shadow: none;
+  --head-bg: transparent;
+  --head-fg: var(--accent);
+}
+html[data-theme="ex-live"]:not([data-video])[data-mode="dark"] {
+  --bg: #11111B;
+  --paper: #1E1E2E;
+  --ink: #CDD6F4;
+  --ink-2: #BAC2DE;
+  --ink-3: #A6ADC8;
+  --line: #45475A;
+  --line-2: #313244;
+  --fill: #181825;
+  --accent: #89B4FA;
+  --accent-bg: #2F364F;
+  --accent-2: #CBA6F7;
+  --accent-strong: #89B4FA;
+  --ok: #A6E3A1;
+  --ok-bg: #343E40;
+  --warn: #F9E2AF;
+  --warn-bg: #413D43;
+  --err: #F38BA8;
+  --err-bg: #402F42;
+  --term-bg: #0E0E15;
+  --term-fg: #CDD6F4;
+}
+@media (prefers-color-scheme: dark) {
+  html[data-theme="ex-live"]:not([data-video])[data-mode="auto"] {
+  --bg: #11111B;
+  --paper: #1E1E2E;
+  --ink: #CDD6F4;
+  --ink-2: #BAC2DE;
+  --ink-3: #A6ADC8;
+  --line: #45475A;
+  --line-2: #313244;
+  --fill: #181825;
+  --accent: #89B4FA;
+  --accent-bg: #2F364F;
+  --accent-2: #CBA6F7;
+  --accent-strong: #89B4FA;
+  --ok: #A6E3A1;
+  --ok-bg: #343E40;
+  --warn: #F9E2AF;
+  --warn-bg: #413D43;
+  --err: #F38BA8;
+  --err-bg: #402F42;
+  --term-bg: #0E0E15;
+  --term-fg: #CDD6F4;
+  }
+}
+
+/* ============================================================
+   「克制版式」结构层 —— 与配色解耦，只描述骨架
+   依据：正文 65~75ch、8/16/24/32/48 间距阶梯、发丝线取正文色 10~16%、
+   面板 6~8px 圆角、阴影只给浮层、徽章 20~24px 高、alert 左侧 3px 语义色、
+   深色不用纯黑纯白、数据列 tabular-nums。全部只覆盖样式，不动布局常量。
+   ============================================================ */
+
+/* ── 页面底与页头 ────────────────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) body { font-size: 14px; line-height: 1.7; }
+html[data-theme="ex-live"]:not([data-video]) .am-sheet { max-width: 1640px; padding: 48px 34px 48px; }
+html[data-theme="ex-live"]:not([data-video]) .am-head { margin-bottom: 28px; }
+html[data-theme="ex-live"]:not([data-video]) .am-head h1 {
+  font-size: 30px; font-weight: 600; letter-spacing: -0.018em; line-height: 1.24;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-sub { margin-top: 8px; font-size: 14.5px; color: var(--ink-2); }
+html[data-theme="ex-live"]:not([data-video]) .am-head-meta {
+  margin-top: 12px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.02em;
+  color: var(--ink-3);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-head-meta b { color: var(--ink-3); }
+html[data-theme="ex-live"]:not([data-video]) .am-intro {
+  margin-top: 16px; max-width: 72ch; font-size: 14.5px; color: var(--ink);
+  background: var(--accent-bg); border: 0; border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 12px 16px;
+}
+
+/* ── 去掉图纸外框与刻度尺 ────────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-frame { border: 0; padding: 0; background: transparent; }
+html[data-theme="ex-live"]:not([data-video]) .am-frame::before,
+html[data-theme="ex-live"]:not([data-video]) .am-ruler { display: none !important; }
+
+/* ── 网格与面板 ─────────────────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-grid { gap: 18px; align-items: stretch; }
+html[data-theme="ex-live"]:not([data-video]) .am-panel {
+  border: 1px solid var(--line); border-radius: var(--radius); box-shadow: none;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-panel-head {
+  display: flex; align-items: center; gap: 10px; min-height: 0;
+  padding: 14px 18px 11px; background: transparent; border-bottom: 1px solid var(--line-2);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-panel-id {
+  min-width: 21px; height: 21px; align-self: center; margin: 0; padding: 0;
+  border: 1px solid var(--line); border-radius: 6px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  background: transparent; color: var(--accent);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-panel-head::after {
+  content: ""; flex: 1 1 24px; align-self: center;
+  border-top: 1px dashed var(--line); min-width: 16px;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-panel-head h2 {
+  flex: 0 0 auto; padding: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.005em;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-panel-meta {
+  flex: 0 0 auto; align-self: center; margin: 0; font-size: 11px; color: var(--ink-3);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-panel-body { padding: 16px 18px 18px; }
+html[data-theme="ex-live"]:not([data-video]) .am-panel-body > * + * { margin-top: 14px; }
+
+/* ── 表格：只有发丝线 ────────────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-table-wrap { border: 0; border-radius: 0; overflow: visible; }
+html[data-theme="ex-live"]:not([data-video]) .am-md table { font-size: 13.5px; }
+html[data-theme="ex-live"]:not([data-video]) .am-md th {
+  background: transparent; padding: 4px 12px 8px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.02em;
+  color: var(--ink-3); border-bottom: 1px solid var(--line);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-md td { padding: 11px 12px; border-bottom: 1px solid var(--line-2); }
+html[data-theme="ex-live"]:not([data-video]) .am-md tbody tr:nth-child(even) td { background: transparent; }
+html[data-theme="ex-live"]:not([data-video]) .am-md tbody tr:last-child td { border-bottom: 0; }
+html[data-theme="ex-live"]:not([data-video]) .am-md tbody tr:hover td { background: var(--fill); }
+html[data-theme="ex-live"]:not([data-video]) .am-md td, html[data-theme="ex-live"]:not([data-video]) .am-kv dd, html[data-theme="ex-live"]:not([data-video]) .am-lim-val,
+html[data-theme="ex-live"]:not([data-video]) .am-timeline .am-tl-when { font-variant-numeric: tabular-nums; }
+html[data-theme="ex-live"]:not([data-video]) .am-md h3, html[data-theme="ex-live"]:not([data-video]) .am-md h4 { font-size: 13.5px; }
+html[data-theme="ex-live"]:not([data-video]) .am-md :not(pre) > code {
+  background: var(--accent-bg); color: var(--accent-strong); border-radius: 5px; padding: 2px 6px;
+  font-size: 0.88em;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-md blockquote {
+  border: 0; border-left: 2px solid var(--line); border-radius: 0;
+  padding: 2px 14px; background: transparent;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-code {
+  background: var(--term-bg); color: var(--term-fg); border: 0; border-radius: var(--radius);
+  font-size: 12.5px; line-height: 1.7;
+}
+
+/* ── 状态：小方块图标 + 文字 ─────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 500; white-space: nowrap;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-status-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 19px; height: 19px; min-width: 19px; border-radius: 5px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-status--ok .am-status-icon { background: var(--ok-bg); color: var(--ok); }
+html[data-theme="ex-live"]:not([data-video]) .am-status--no .am-status-icon { background: var(--err-bg); color: var(--err); }
+html[data-theme="ex-live"]:not([data-video]) .am-status--warn .am-status-icon { background: var(--warn-bg); color: var(--warn); }
+
+/* ── callout / kv ───────────────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-callout {
+  border: 0; border-left: 3px solid var(--accent); background: var(--accent-bg);
+  border-radius: 0 var(--radius) var(--radius) 0; padding: 13px 16px;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-callout--ok { border-left-color: var(--ok); background: var(--ok-bg); }
+html[data-theme="ex-live"]:not([data-video]) .am-callout--warn { border-left-color: var(--warn); background: var(--warn-bg); }
+html[data-theme="ex-live"]:not([data-video]) .am-callout--err { border-left-color: var(--err); background: var(--err-bg); }
+html[data-theme="ex-live"]:not([data-video]) .am-callout-title { font-size: 13.5px; font-weight: 600; margin-bottom: 5px; }
+html[data-theme="ex-live"]:not([data-video]) .am-kv { border: 0; border-radius: 0; }
+html[data-theme="ex-live"]:not([data-video]) .am-kv-cell {
+  border: 0; border-top: 1px solid var(--line-2); border-left: 1px solid var(--line-2);
+  background: transparent; padding: 11px 14px 13px;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-kv-cell:nth-child(-n + 2) { border-top: 0; }
+html[data-theme="ex-live"]:not([data-video]) .am-kv-cell--wide { background: transparent; }
+html[data-theme="ex-live"]:not([data-video]) .am-kv dt { font-size: 11px; letter-spacing: 0.02em; color: var(--ink-3); }
+html[data-theme="ex-live"]:not([data-video]) .am-kv dd { font-weight: 600; font-size: 15px; }
+html[data-theme="ex-live"]:not([data-video]) .am-kv-cell--wide dd { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+
+/* ── timeline / limits / tree ───────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-timeline--v li::before { left: 5px; border-left: 1px solid var(--line); }
+html[data-theme="ex-live"]:not([data-video]) .am-timeline--v .am-tl-dot {
+  border-width: 1.5px; border-color: var(--line); background: var(--bg); box-sizing: content-box;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-timeline--v .am-tl-item--hi .am-tl-dot {
+  border-color: var(--accent); background: var(--accent);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-timeline--v .am-tl-when { color: var(--ink-3); font-weight: 500; }
+html[data-theme="ex-live"]:not([data-video]) .am-tl-title { font-weight: 600; }
+html[data-theme="ex-live"]:not([data-video]) .am-lim-track {
+  height: 12px; border: 0; background: var(--fill); border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--line-2);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-lim-fill { border-right: 0; border-radius: 999px; background: var(--accent); opacity: 0.8; }
+html[data-theme="ex-live"]:not([data-video]) .am-lim-mark { top: -4px; bottom: -4px; border-left: 1px solid var(--accent-2); }
+html[data-theme="ex-live"]:not([data-video]) .am-lim-val { color: var(--accent-strong); font-weight: 500; }
+html[data-theme="ex-live"]:not([data-video]) .am-tree-box { border-radius: 8px; border-color: var(--line); background: var(--paper); }
+html[data-theme="ex-live"]:not([data-video]) .am-tree-box--root {
+  background: var(--accent-bg); border-color: var(--accent); color: var(--ink); font-weight: 600;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-tree-box--root small { color: var(--ink-2); }
+
+/* ── 图 ──────────────────────────────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-node-shape { rx: 8px; stroke: var(--line); stroke-width: 1.2; }
+html[data-theme="ex-live"]:not([data-video]) .am-node--hi .am-node-shape { fill: var(--accent-bg); stroke: var(--accent); stroke-width: 1.4; }
+html[data-theme="ex-live"]:not([data-video]) .am-node--hi text { fill: var(--accent-strong); }
+html[data-theme="ex-live"]:not([data-video]) .am-edge { stroke: var(--ink-3); stroke-width: 1.3; stroke-linejoin: round; }
+html[data-theme="ex-live"]:not([data-video]) .am-arrow { fill: var(--ink-3); }
+html[data-theme="ex-live"]:not([data-video]) .am-diagram .am-edge-label text { fill: var(--accent-strong); font-weight: 500; }
+html[data-theme="ex-live"]:not([data-video]) .am-edge-label rect { fill: var(--bg); }
+
+/* ── doc 目录 / 工具条 / 打印 ───────────────────────── */
+html[data-theme="ex-live"]:not([data-video]) .am-doc-layout { grid-template-columns: 218px minmax(0, 1fr); gap: 40px; }
+html[data-theme="ex-live"]:not([data-video]) .am-doc-body .am-md p,
+html[data-theme="ex-live"]:not([data-video]) .am-doc-body .am-md li { max-width: 72ch; }
+html[data-theme="ex-live"]:not([data-video]) .am-toc { font-size: 13px; }
+html[data-theme="ex-live"]:not([data-video]) .am-toc a {
+  border-left: 0; border-radius: 7px; padding: 6px 11px; margin-bottom: 2px; color: var(--ink-2);
+}
+html[data-theme="ex-live"]:not([data-video]) .am-toc a:hover { background: var(--fill); color: var(--ink); }
+html[data-theme="ex-live"]:not([data-video]) .am-doc-body > .am-panel + .am-panel { margin-top: 18px; }
+html[data-theme="ex-live"]:not([data-video]) .am-btn {
+  border-radius: 8px; padding: 7px 12px; border-color: var(--line); background: var(--paper);
+  box-shadow: none; font-family: var(--font-mono); font-size: 11.5px;
+}
+html[data-theme="ex-live"]:not([data-video]) .am-btn:hover { border-color: var(--ink-3); }
+html[data-theme="ex-live"]:not([data-video]) .am-colophon { font-size: 11px; letter-spacing: 0.02em; }
+html[data-theme="ex-live"]:not([data-video]) .am-doc-layout--notoc {
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (max-width: 760px) {
+  html[data-theme="ex-live"]:not([data-video]) .am-doc-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  html[data-theme="ex-live"]:not([data-video]) .am-panel-head h2 {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  html[data-theme="ex-live"]:not([data-video]) .am-panel-head::after { display: none; }
+}
+@media print {
+  html[data-theme="ex-live"]:not([data-video]) .am-toolbar, html[data-theme="ex-live"]:not([data-video]) .am-ruler { display: none; }
+  html[data-theme="ex-live"]:not([data-video]) body { background: #fff; }
+  html[data-theme="ex-live"]:not([data-video]) .am-panel { break-inside: avoid; box-shadow: none; }
+  html[data-theme="ex-live"]:not([data-video]) .am-code { background: var(--fill); color: var(--ink); border: 1px solid var(--line-2); }
+}
