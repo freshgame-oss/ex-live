@@ -13,6 +13,43 @@
 
 GitHub README 展示的是 12 秒 GIF 预览。完整 HTML 支持暂停、继续和离线播放。图中的状态、日志和计数均为模拟。
 
+## 三种主题对比
+
+同一张架构图，截取同一时刻（9.5 秒）。内容、布局和字号相同；状态、日志和计数均为模拟。点击图片查看大图。
+
+| `dark` · 暗色终端 | `light` · 柔和浅色 | `warm` · 暖纸色 |
+| --- | --- | --- |
+| [![dark：深灰背景、亮色连线](examples/assets/theme-dark.png)](examples/assets/theme-dark.png) | [![light：近白背景、柔和配色](examples/assets/theme-light.png)](examples/assets/theme-light.png) | [![warm：米色纸面、圆角卡片](examples/assets/theme-warm.png)](examples/assets/theme-warm.png) |
+| 深灰背景、分段边框，适合运行状态演示。 | 近白背景、无衬线字体，适合明亮的演示页面。 | 米色背景、圆角卡片，适合说明文档。 |
+
+三种主题使用各自的原生样式。`light` 的青色、绿色使用对应的 `tl`、`gn` 色名；`dark` 和 `warm` 使用 `cy`、`gr`。切换已有配置时，需要同步检查颜色引用。
+
+### 指定主题调用
+
+在 Pi 中任选一条：
+
+```text
+/skill:ex-live 解释当前仓库的架构，动态面板用 dark。
+/skill:ex-live 解释当前仓库的架构，动态面板用 light。
+/skill:ex-live 解释当前仓库的架构，动态面板用 warm。
+```
+
+其他 Agent 可以说「使用 ex-live 解释当前仓库，动态面板用 dark」，并替换最后的主题名。
+
+手动编辑时，在源稿的 `live-panel` JSON 中设置：
+
+```json
+"theme": {"preset": "dark"}
+```
+
+将 `dark` 换为 `light` 或 `warm`，再执行：
+
+```bash
+node scripts/ex-live.mjs render ./my-page.md --style strict --no-open -o ./out/my-page.html
+```
+
+这是动态面板主题。说明页的明暗单独设置；例如需要整页暗色时，可以说「说明页用 dark 模式，动态面板用 dark」。
+
 ## 在 Agent 中调用
 
 你只需提供目标和材料，Agent 会准备说明文字与动态配置。材料可以是当前仓库、文档路径或已确认的流程。
